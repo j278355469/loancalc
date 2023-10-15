@@ -74,11 +74,13 @@
                 else {
                     text = `期別:${i + 1}本金:${monthPay} 利息:${interest}本利和:${monthPay + interest}餘額:${amout}`;
                 }
+                liText += `<li>${text}</li>`;
+
                 console.log(text);
 
             }
 
-            resultEl.innerHTML = liText
+            resultEl.innerHTML = liText;
         }
 
     </script>
