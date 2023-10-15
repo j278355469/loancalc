@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>貸款計算器</h1>
+    <from>
+        <label for="">計算方式:</label>
+        <input type="radio" name="repayment" checked>本金攤還
+        <input type="radio" name="repayment">本息攤還
+        <br>
+        <label for="loanAmount">貸款金額:</label>
+        <input type="number" id="loanAmount" name="loanAmount" placeholder="請輸入金額">&nbsp;元<br>
+        <label for="InterestRate">貸款利率:</label>
+        <input type="number" id="InterestRate" name="InterestRate" placeholder="請輸入利率">&nbsp;%<br>
+        <label for="loanYear">貸款期數:</label>
+        <select name="loanYear" id="loanYear">
+            <option value="3">3</option>
+            <option value="5">5</option>
+            <option value="7" selected>7</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+
+
+        </select>&nbsp;年
+
+        <br><br>
+        <input type="button" value="計算"></input>
+
+    </from>
+
+</body>
+
+</html>
