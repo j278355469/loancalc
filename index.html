@@ -33,11 +33,18 @@
 
 
     </from>
+    <ul id="result">
+
+    </ul>
+
+
     <script>
         const loanAmountEl = document.querySelector("#loanAmount");
         const InterestRateEl = document.querySelector("#InterestRate");
         const loanYearEl = document.querySelector("#loanYear");
         const PrincipalPaymentEl = document.querySelector("#PrincipalPayment");
+        const resultEl = document.querySelector("#result");
+
 
 
 
@@ -71,7 +78,7 @@
 
             }
 
-
+            resultEl.innerHTML = liText
         }
 
     </script>
