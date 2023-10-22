@@ -18,61 +18,88 @@
     <section class="hero is-info is-fullheight">
         <div class="hero-body">
             <div class="container has-text-centered">
-                <p class="title">
+                <p class="title is-size-1">
                     貸款利息計算器
                 </p>
-                <form class="box has-background-warning">
-                    <div class="field box has-background-link has-text-white">
-                        <label class="label is-size-4 has-text-white">計算方式:</label>
-                        <div class="control">
-                            <input type="radio" id="principalPayment" name="repayment" checked>本金攤還
-                            <input type="radio" id="interestPayment" name="repayment">本息攤還
-                        </div>
+
+                <div class="columns is-centered ">
+                    <div class="column is-6">
+                        <form class="box has-background-warning">
+                            <div class="field box has-background-link has-text-white">
+                                <label class="label is-size-4 has-text-white">計算方式:</label>
+                                <div class="control">
+                                    <input type="radio" id="principalPayment" name="repayment" checked>本金攤還
+                                    <input type="radio" id="interestPayment" name="repayment">本息攤還
+                                </div>
+
+                            </div>
+                            <div class="field m-3">
+                                <label class="label" for="loanAmount">貸款金額(萬):</label>
+                                <input class="input ml-" type="number" id="loanAmount" placeholder="請輸入金額"
+                                    value="10">&nbsp;
+                            </div>
+                            <div class="fied">
+                                <label class="label" for="interestRate">貸款利率(%):</label>
+                                <input class="input" type="number" id="interestRate" step="0.1" value="3.5">&nbsp;
+
+                            </div>
+                            <div class="fied"></div>
+
+                            <label class="label" for="loanYear">貸款年數:(年)</label>
+                            <select class="select is-fullwidth has-text-centered is-size-6" name="loanYear"
+                                id="loanYear">
+                                <option value="3">3</option>
+                                <option value="5">5</option>
+                                <option value="7" selected>7</option>
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                            </select>
+                            <div class="field">
+
+                                <input class="button has-background-primary has-text-white" type="button" value="計算"
+                                    onclick="roanCalc()">
+                                <input class="button has-background-primary has-text-white" type="reset" value="重置"
+                                    onclick="roanCalc()">
+
+                            </div>
+                        </form>
 
                     </div>
-                    <div class="field">
-                        <label class="label" for="loanAmount">貸款金額(萬):</label>
-                        <input class="input" type="number" id="loanAmount" placeholder="請輸入金額" value="10">&nbsp;
-                    </div>
-                    <div class="fied">
-                        <label class="label" for="interestRate">貸款利率(%):</label>
-                        <input class="input" type="number" id="interestRate" step="0.1" value="3.5">&nbsp;
+                </div>
 
-                    </div>
-                    <div class="fied"></div>
 
-                    <label class="label" for="loanYear">貸款年數:(年)</label>
-                    <select class="select" name="loanYear" id="loanYear">
-                        <option value="3">3</option>
-                        <option value="5">5</option>
-                        <option value="7" selected>7</option>
-                        <option value="10">10</option>
-                        <option value="20">20</option>
-                    </select>
-                    <div class="field">
-
-                        <input class="button has-background-primary has-text-white" type="button" value="計算"
-                            onclick="roanCalc()">
-                    </div>
-                </form>
-                <div id="result">
+                <div id="result" class="box is-size-4 has-background-danger has-text-white">
 
                 </div>
-                <table id="resultTable" border="1" hidden>
-                    <thead>
-                        <tr>
-                            <th>期別</th>
-                            <th>本金</th>
-                            <th>利息</th>
-                            <th>本利和</th>
-                            <th>餘額</th>
-                        </tr>
-                    </thead>
-                    <tbody>
 
-                    </tbody>
+                <din class="columns is-centered ">
+                    <div class="column is-8">
+                        <table id="resultTable" class="table is-fullwidth is-bordered is-striped is-hoverable" hidden>
+                            <thead>
+                                <tr class="has-background-link ">
+                                    <th class="has-text-white has-text-centered">期別</th>
+                                    <th class="has-text-white has-text-centered">本金</th>
+                                    <th class="has-text-white has-text-centered">利息</th>
+                                    <th class="has-text-white has-text-centered">本利和</th>
+                                    <th class="has-text-white has-text-centered">餘額</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                </table>
+                            </tbody>
+
+                        </table>
+
+
+
+
+                    </div>
+
+                </din>
+
+
+
+                <a href="" class="button has-background-link has-text-white">TOP</a>
             </div>
 
 
