@@ -33,17 +33,20 @@
 
 
     </from>
-    <ul id="result">
+    <div id="result">
 
-    </ul>
-    <table id="resultTable" border="1">
+
+
+
+    </div>
+    <table id="resultTable" border="1" hidden>
         <thead>
             <tr>
-                <th>期別</th>>
-                <th>本金</th>>
-                <th>利息</th>>
-                <th>本利和</th>>
-                <th>餘額</th>>
+                <th>期別</th>
+                <th>本金</th>
+                <th>利息</th>
+                <th>本利和</th>
+                <th>餘額</th>
             </tr>
         </thead>
         <tbody>
@@ -83,6 +86,8 @@
             let monthPay = parseInt(amount / months);
 
             let resultPayment = []
+            let intotal = 0
+            let alltotal = 0
 
             console.log(amount, months, monthRate, monthPay);
 
@@ -92,39 +97,45 @@
                 let interest = Math.round(loanAmount * monthRate)
                 amount -= monthPay
 
+
                 if (i == months - 1) {
                     resultPayment.push([i + 1, monthPay + amount, interest, monthPay + interest + amount, 0]);
-
-
+                    intotal += interest
+                    alltotal += monthPay
                 }
                 else {
                     resultPayment.push([i + 1, monthPay, interest, monthPay + interest, amount]);
-
-
+                    intotal += interest
+                    alltotal += monthPay
                 }
-
 
             }
 
-            console.log(resultPayment);
-
+            //console.log(resultPayment);
         }
 
-        function drawTable(resulPayment) {
-            console.log(tableTbodyE1, resulPayment);
+
+        resultEl.innerHTML = `期期數:${resulPayment.length}總利息:${intotal}總支出:${intotal + loanAmountEl}`;
+
+
+
+
+        function drawTable(resultPayment) {
+            console.log(tableTbodyE1, resultPayment);
             let tableHtml = "";
             //<tr></tr>
-            for (let i = 0; i < resulPayment.length; j++) {
+            for (let i = 0; i < resultPayment.length; j++) {
                 tableHtml += "<tr>"
-                for (let j = 0; j < resulPayment[i].length; j++) {
+                for (let j = 0; j < resultPayment[i].length; j++) {
                     //console.log(resulPayment[i][j]);
-                    tableHtml += `<td>${resulPayment[i][j]}</td>`
+                    tableHtml += `<td>${resultPayment[i][j]}</td>`
 
                 }
                 tableHtml += "</tr>";
 
             }
             tableTbodyE1.innerHTML = tableHtml;
+
 
         }
 
