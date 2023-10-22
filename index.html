@@ -4,53 +4,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>貸款利息計算機</title>
+    <!--<link rel="stylesheet" href="style.css">-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <style>
+        input {
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>貸款利息計算器</h1>
-    <form>
-        <label for="">計算方式:</label>
-        <input type="radio" id="principalPayment" name="repayment" checked>本金攤還
-        <input type="radio" id="interestPayment" name="repayment">本息攤還
-        <br>
-        <label for="loanAmount">貸款金額:</label>
-        <input type="number" id="loanAmount" placeholder="請輸入金額" value="10">&nbsp;萬
-        <br>
-        <label for="interestRate">貸款利率:</label>
-        <input type="number" id="interestRate" step="0.1" value="3.5">&nbsp;%
-        <br>
-        <label for="loanYear">貸款年數:</label>
-        <select name="loanYear" id="loanYear">
-            <option value="3">3</option>
-            <option value="5">5</option>
-            <option value="7" selected>7</option>
-            <option value="10">10</option>
-            <option value="20">20</option>
-        </select>
-        &nbsp;年
-        <br>
-        <input type="button" value="計算" onclick="roanCalc()">
-    </form>
-    <div id="result">
+    <section class="hero is-info is-fullheight">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <p class="title">
+                    貸款利息計算器
+                </p>
+                <form class="box has-background-warning">
+                    <div class="field box has-background-link has-text-white">
+                        <label class="label is-size-4 has-text-white">計算方式:</label>
+                        <div class="control">
+                            <input type="radio" id="principalPayment" name="repayment" checked>本金攤還
+                            <input type="radio" id="interestPayment" name="repayment">本息攤還
+                        </div>
 
-    </div>
-    <table id="resultTable" border="1" hidden>
-        <thead>
-            <tr>
-                <th>期別</th>
-                <th>本金</th>
-                <th>利息</th>
-                <th>本利和</th>
-                <th>餘額</th>
-            </tr>
-        </thead>
-        <tbody>
+                    </div>
+                    <div class="field">
+                        <label class="label" for="loanAmount">貸款金額(萬):</label>
+                        <input class="input" type="number" id="loanAmount" placeholder="請輸入金額" value="10">&nbsp;
+                    </div>
+                    <div class="fied">
+                        <label class="label" for="interestRate">貸款利率(%):</label>
+                        <input class="input" type="number" id="interestRate" step="0.1" value="3.5">&nbsp;
 
-        </tbody>
+                    </div>
+                    <div class="fied"></div>
 
-    </table>
+                    <label class="label" for="loanYear">貸款年數:(年)</label>
+                    <select class="select" name="loanYear" id="loanYear">
+                        <option value="3">3</option>
+                        <option value="5">5</option>
+                        <option value="7" selected>7</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                    </select>
+                    <div class="field">
+
+                        <input class="button has-background-primary has-text-white" type="button" value="計算"
+                            onclick="roanCalc()">
+                    </div>
+                </form>
+                <div id="result">
+
+                </div>
+                <table id="resultTable" border="1" hidden>
+                    <thead>
+                        <tr>
+                            <th>期別</th>
+                            <th>本金</th>
+                            <th>利息</th>
+                            <th>本利和</th>
+                            <th>餘額</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+
+                </table>
+            </div>
+
+
+
+
+        </div>
+    </section>
+
+
 
 
     <script>
