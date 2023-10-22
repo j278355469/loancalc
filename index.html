@@ -36,6 +36,25 @@
     <ul id="result">
 
     </ul>
+    <table id="resultTable" border="1">
+        <thead>
+            <tr>
+                <th>期別</th>>
+                <th>本金</th>>
+                <th>利息</th>>
+                <th>本利和</th>>
+                <th>餘額</th>>
+            </tr>
+        </thead>
+        <tbody>
+
+
+        </tbody>
+
+    </table>
+
+
+
 
 
     <script>
@@ -44,6 +63,8 @@
         const loanYearEl = document.querySelector("#loanYear");
         const PrincipalPaymentEl = document.querySelector("#PrincipalPayment");
         const resultEl = document.querySelector("#result");
+
+        const tableTbodyE1 = document.querySelector("resultTable>tbody")
 
 
 
@@ -56,31 +77,55 @@
             let PrincipalPayment = PrincipalPaymentEl.checked;
             console.log(loanAmount, InterestRate, loanYear, PrincipalPayment);
 
-            let amout = loanAmount;
+            let amount = loanAmount;
             let months = loanYear * 12;
             let monthRate = InterestRate / 100 / 12;
-            let monthPay = parseInt(amout / months);
-            console.log(amout, months, monthRate, monthPay);
+            let monthPay = parseInt(amount / months);
 
-            let liText = "";
+            let resultPayment = []
+
+            console.log(amount, months, monthRate, monthPay);
+
+
 
             for (let i = 0; i < months; i++) {
                 let interest = Math.round(loanAmount * monthRate)
-                amout -= monthPay
-                let text = ""
+                amount -= monthPay
+
                 if (i == months - 1) {
-                    text = `期別:${i + 1}本金:${monthPay} 利息:${interest}本利和:${monthPay + interest + amout}餘額:0`;
+                    resultPayment.push([i + 1, monthPay + amount, interest, monthPay + interest + amount, 0]);
+
+
                 }
                 else {
-                    text = `期別:${i + 1}本金:${monthPay} 利息:${interest}本利和:${monthPay + interest}餘額:${amout}`;
-                }
-                liText += `<li>${text}</li>`;
+                    resultPayment.push([i + 1, monthPay, interest, monthPay + interest, amount]);
 
-                console.log(text);
+
+                }
+
 
             }
 
-            resultEl.innerHTML = liText;
+            console.log(resultPayment);
+
+        }
+
+        function drawTable(resulPayment) {
+            console.log(tableTbodyE1, resulPayment);
+            let tableHtml = "";
+            //<tr></tr>
+            for (let i = 0; i < resulPayment.length; j++) {
+                tableHtml += "<tr>"
+                for (let j = 0; j < resulPayment[i].length; j++) {
+                    //console.log(resulPayment[i][j]);
+                    tableHtml += `<td>${resulPayment[i][j]}</td>`
+
+                }
+                tableHtml += "</tr>";
+
+            }
+            tableTbodyE1.innerHTML = tableHtml;
+
         }
 
     </script>
